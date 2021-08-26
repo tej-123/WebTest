@@ -16,29 +16,53 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
          s.parentNode.insertBefore(wzrk, s);
   })();
   
-  function onUserLogin()
-  {
-  var name=document.getElementById("name").value;
-  var email=document.getElementById("email").value;
-  var phoneno=document.getElementById("phone").value;
-  var Dateofbirth=document.getElementById("date").value;
-  var gender=document.getElementById("Gender").value;
 
-  clevertap.onUserLogin.push({
-      "Site": {
-      "Name": name,   
-      "Email": email,          
-      "Phone": phoneno,           // Phone (with the country code
-      "DOB": new Date(Dateofbirth),                 // Date of Birth. Date object   
-      "gender": gender  
-        }
-          });
+</script>
 
-          console.log("profile created")
-    }
-    
+    <center> <h1> Login Form </h1> </center>
+    <form>
+        <div class="container"> 
+            <label>Username : </label> 
+            <input type="identity" placeholder="Enter Identity" name="identity" required>
+            <label>Mobile No. : </label> 
+            <input type="mobileNo" placeholder="Enter Mobile No" name="mobileNo" required>
+            <label>E-mail id : </label> 
+            <input type="email" placeholder="Enter E-mail id" name="email" required>
+            <label>Date of birth : </label> 
+            <input type="Date" placeholder="Enter Date of birth" name="Date" required>
+            <label>Gender : </label> 
+            <input type="Gender" placeholder="Enter Date of birth" name="Gender" required>
+        </div>
 
-function profilePush(){
+      <button onclick="onUserLogin()">login</button>
+      <script>
+        
+          function onUserLogin()
+          {
+              var name=document.getElementById("name").value;
+              var email=document.getElementById("email").value;
+              var phoneno=document.getElementById("phone").value;
+              var Dateofbirth=document.getElementById("date").value;
+              var gender=document.getElementById("Gender").value;
+
+              clevertap.onUserLogin.push({
+                  "Site": {
+                  "Name": name,   
+                  "Email": email,          
+                  "Phone": phoneno,           // Phone (with the country code
+                  "DOB": new Date(Dateofbirth),                 // Date of Birth. Date object   
+                  "gender": gender  
+                    }
+                      });
+
+                  console.log("profile created")
+            }
+      </script>
+
+            <button onclick="profilePush()">Profile push</button>
+            <script>
+              
+              function profilePush(){
   var name=document.getElementById("name").value;
   var email=document.getElementById("email").value;
   var phoneno=document.getElementById("phone").value;
@@ -60,7 +84,7 @@ console.log("profile successfully pushed")
 }  
 
 
-</script>
+            </script>
 
 
 <button onclick="askForPush()">Submit</button>
@@ -75,6 +99,8 @@ clevertap.notifications.push({
 
 console.log("Ok button created")
       }
+
+
 </script>
 </body>
 </head>
