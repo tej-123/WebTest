@@ -35,6 +35,27 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
         </div>
 
       <button onclick="onUserLogin()">login</button>
+         
+              function profilePush(){
+  var name=document.getElementById("name").value;
+  var email=document.getElementById("email").value;
+  var phoneno=document.getElementById("phone").value;
+  var Dateofbirth=document.getElementById("date").value;
+  var gender=document.getElementById("Gender").value;
+
+  clevertap.profile.push({
+   "Site": {
+   "Name":   name ,         // use the Name variable
+   "Email":  email,         // Email address of the user
+   "Phone": phoneno,           // Phone (with the country code
+   "DOB": new Date(Dateofbirth),  // Date of Birth. Date object   
+   "gender": gender  
+     }
+        });
+
+console.log("profile successfully pushed")
+
+}  
       <script>
         
           function onUserLogin()
@@ -57,51 +78,23 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
                   console.log("profile created")
             }
-      </script>
+           function askForPush(){
 
-            <button onclick="profilePush()">Profile push</button>
-            <script>
-              
-              function profilePush(){
-  var name=document.getElementById("name").value;
-  var email=document.getElementById("email").value;
-  var phoneno=document.getElementById("phone").value;
-  var Dateofbirth=document.getElementById("date").value;
-  var gender=document.getElementById("Gender").value;
-
-  clevertap.profile.push({
-   "Site": {
-   "Name":   name ,         // use the Name variable
-   "Email":  email,         // Email address of the user
-   "Phone": phoneno,           // Phone (with the country code
-   "DOB": new Date(Dateofbirth),  // Date of Birth. Date object   
-   "gender": gender  
-     }
-        });
-
-console.log("profile successfully pushed")
-
-}  
-
-
-            </script>
-
-
-<button onclick="askForPush()">Submit</button>
-<script>
-function askForPush(){
-
-clevertap.notifications.push({
+     clevertap.notifications.push({
     "titleText":"Do you want to subscribe to web push?",
     "bodyText":"Get updates",
     "rejectButtonText":'No',
     "okButtonText":'Yes'});
 
-console.log("Ok button created")
+     console.log("Ok button created")
       }
 
 
-</script>
+      </script>
+
+            <button onclick="profilePush()">Profile push</button>
+
+<button onclick="askForPush()">Submit</button>
 </form>
 </body>
 </head>
