@@ -37,27 +37,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 console.log("profile successfully pushed")
 
 }  
-</script>
 
-    <center> <h1> Login Form </h1> </center>
-    <form>
-        <div class="container"> 
-            <label>Username : </label> 
-            <input type="identity" placeholder="Enter Identity" name="identity" required>
-            <label>Mobile No. : </label> 
-            <input type="mobileNo" placeholder="Enter Mobile No" name="mobileNo" required>
-            <label>E-mail id : </label> 
-            <input type="email" placeholder="Enter E-mail id" name="email" required>
-            <label>Date of birth : </label> 
-            <input type="Date" placeholder="Enter Date of birth" name="date" required>
-            <label>Gender : </label> 
-            <input type="Gender" placeholder="Enter Date of birth" name="Gender" required>
-        </div>
-
-      <button onclick="onUserLogin()">login</button>
-         
-      <script>
-        
           function onUserLogin()
           {
               var name=document.getElementById("name").value;
@@ -90,7 +70,24 @@ console.log("profile successfully pushed")
       }
 
 
-      </script>
+</script>
+
+    <center> <h1> Login Form </h1> </center>
+    <form>
+        <div class="container"> 
+            <label>Username : </label> 
+            <input type="identity" placeholder="Enter Identity" name="identity" required>
+            <label>Mobile No. : </label> 
+            <input type="mobileNo" placeholder="Enter Mobile No" name="mobileNo" required>
+            <label>E-mail id : </label> 
+            <input type="email" placeholder="Enter E-mail id" name="email" required>
+            <label>Date of birth : </label> 
+            <input type="Date" placeholder="Enter Date of birth" name="date" required>
+            <label>Gender : </label> 
+            <input type="Gender" placeholder="Enter Date of birth" name="Gender" required>
+        </div>
+
+      <button onclick="onUserLogin()">login</button>
 
             <button onclick="profilePush()">Profile push</button>
 
