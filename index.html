@@ -25,22 +25,22 @@
      <div>
      <form>
                 <div>
-                    <input type=“text” name=“” id=‘name’ placeholder= “ Enter your Name”>
+                    <input type="text" name="" id="name" placeholder= "Enter your Name">
                 </div>
                 <div>
-                    <input type=“email” name=“” id=‘email’ placeholder= “ Enter your Email Address”>
+                    <input type="email" name="" id="email" placeholder= "Enter your Email Address">
                 </div>
                 <div>
-                    <input type=“tel” name=“” id=‘tel’ placeholder= “ Enter your Phone number”>
+                    <input type="tel" name="" id="tel" placeholder= "Enter your Phone number">
                 </div>
                 <div>
-                    <input type=“text” name=“” id=‘dob’ placeholder= “ Enter your Date of Birth”
-                        onfocus=“(this.type=‘date’)“>
+                    <input type="text" name="" id="dob" placeholder= "Enter your Date of Birth"
+                        onfocus="(this.type="date")">
                 </div>
-                <button onclick=“loginfunction()“>Login event</button>
-                <button onclick=“profilepushfunction()“>Profile Push</button>
-                <button onclick=“askforpush()“>Ask For Push</button>
-                <button onclick=“raiseeventfunction()“>Raise event</button>
+                <button onclick="loginfunction()">Login event</button>
+                <button onclick="profilepushfunction()">Profile Push</button>
+                <button onclick="askforpush()">Ask For Push</button>
+                <button onclick="raiseeventfunction()">Raise event</button>
 
             </form>
           </div>
@@ -49,12 +49,12 @@
      
      <script type="text/javascript">
 function loginfunction() {
-        var name = document.getElementById(“name”).value;
-        var email = document.getElementById(“email”).value;
-        var phone = document.getElementById(“tel”).value;
-        var dob = document.getElementById(“dob”).value;
-        console.log(name + “::” + email + “::” + phone + “::” + dob)
-        console.log(“The login event is called”)
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("tel").value;
+        var dob = document.getElementById("dob").value;
+        console.log(name + "::" + email + "::" + phone + "::" + dob)
+        console.log("The login event is called")
         clevertap.onUserLogin.push({
             “Site”: {
                 “Name”: name,            // use the Name variable
@@ -65,12 +65,12 @@ function loginfunction() {
         });
     };
     function profilepushfunction() {
-        var name = document.getElementById(“name”).value;
-        var email = document.getElementById(“email”).value;
-        var phone = document.getElementById(“tel”).value;
-        var dob = document.getElementById(“dob”).value;
-        console.log(name + “::” + email + “::” + phone + “::” + dob)
-        console.log(“The profile push event is called”)
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("tel").value;
+        var dob = document.getElementById("dob").value;
+        console.log(name + "::" + email + "::" + phone + "::" + dob)
+        console.log("The profile push event is called")
         clevertap.profile.push({
             “Site”: {
                 “Name”: name,            // use the Name variable
@@ -81,24 +81,24 @@ function loginfunction() {
         });
     }
     function askforpush() {
-        console.log(“The askforpush event is called”)
+        console.log("The askforpush event is called")
         clevertap.notifications.push({
-            “titleText”: ‘Would you like to receive Push Notifications?’,
-            “bodyText”: ‘We promise to only send you relevant content and give you updates on your transactions’,
-            “okButtonText”: ‘Sign me up!’,
-            “rejectButtonText”: ‘No thanks’,
-            “askAgainTimeInSeconds”: 5,
-            “okButtonColor”: ‘#F28046’
+            "titleText": "Would you like to receive Push Notifications?",
+            "bodyText": "We promise to only send you relevant content and give you updates on your transactions",
+            "okButtonText": "Sign me up!",
+            "rejectButtonText": "No thanks",
+            "askAgainTimeInSeconds": 5,
+            "okButtonColor": "#F28046"
         });
     }
     function raiseeventfunction() {
-        console.log(“The raise event is called”)
-        clevertap.event.push(“Product viewed”, {
-            “Product name”: “Casio Chronograph Watch”,
-            “Category”: “Mens Accessories”,
-            “Price”: 59.99,
-            “Date”: new Date(),
-            “Quantity”: 23
+        console.log("The raise event is called")
+        clevertap.event.push("Product viewed", {
+            "Product name": "Casio Chronograph Watch",
+            "Category": "Mens Accessories",
+            "Price": 59.99,
+            "Date": new Date(),
+            "Quantity": 23
         });
     }
               
