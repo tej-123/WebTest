@@ -16,83 +16,84 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
          s.parentNode.insertBefore(wzrk, s);
   })();
   
-
-              function profilePush(){
-  var name=document.getElementById("name").value;
-  var email=document.getElementById("email").value;
-  var phoneno=document.getElementById("phone").value;
-  var Dateofbirth=document.getElementById("date").value;
-  var gender=document.getElementById("Gender").value;
-
-  clevertap.profile.push({
-   "Site": {
-   "Name":   name ,         // use the Name variable
-   "Email":  email,         // Email address of the user
-   "Phone": phoneno,           // Phone (with the country code
-   "DOB": new Date(Dateofbirth),  // Date of Birth. Date object   
-   "gender": gender  
-     }
-        });
-
-console.log("profile successfully pushed")
-
-}  
-
-          function onUserLogin()
-          {
-              var name=document.getElementById("name").value;
-              var email=document.getElementById("email").value;
-              var phoneno=document.getElementById("phone").value;
-              var Dateofbirth=document.getElementById("date").value;
-              var gender=document.getElementById("Gender").value;
-
-              clevertap.onUserLogin.push({
-                  "Site": {
-                  "Name": name,   
-                  "Email": email,          
-                  "Phone": phoneno,           // Phone (with the country code
-                  "DOB": new Date(Dateofbirth),                 // Date of Birth. Date object   
-                  "gender": gender  
-                    }
-                      });
-
-                  console.log("profile created")
+function loginfunction() {
+        var name = document.getElementById(“name”).value;
+        var email = document.getElementById(“email”).value;
+        var phone = document.getElementById(“tel”).value;
+        var dob = document.getElementById(“dob”).value;
+        console.log(name + “::” + email + “::” + phone + “::” + dob)
+        console.log(“The login event is called”)
+        clevertap.onUserLogin.push({
+            “Site”: {
+                “Name”: name,            // use the Name variable
+                “Email”: email,         // Email address of the user
+                “Phone”: phone,           // Phone (with the country code
+                “DOB”: new Date()                 // Date of Birth. Date object
             }
-           function askForPush(){
-
-     clevertap.notifications.push({
-    "titleText":"Do you want to subscribe to web push?",
-    "bodyText":"Get updates",
-    "rejectButtonText":'No',
-    "okButtonText":'Yes'});
-
-     console.log("Ok button created")
-      }
-
-
+        });
+    };
+    function profilepushfunction() {
+        var name = document.getElementById(“name”).value;
+        var email = document.getElementById(“email”).value;
+        var phone = document.getElementById(“tel”).value;
+        var dob = document.getElementById(“dob”).value;
+        console.log(name + “::” + email + “::” + phone + “::” + dob)
+        console.log(“The profile push event is called”)
+        clevertap.profile.push({
+            “Site”: {
+                “Name”: name,            // use the Name variable
+                “Email”: email,         // Email address of the user
+                “Phone”: phone,           // Phone (with the country code
+                “DOB”: new Date()                 // Date of Birth. Date object
+            }
+        });
+    }
+    function askforpush() {
+        console.log(“The askforpush event is called”)
+        clevertap.notifications.push({
+            “titleText”: ‘Would you like to receive Push Notifications?’,
+            “bodyText”: ‘We promise to only send you relevant content and give you updates on your transactions’,
+            “okButtonText”: ‘Sign me up!’,
+            “rejectButtonText”: ‘No thanks’,
+            “askAgainTimeInSeconds”: 5,
+            “okButtonColor”: ‘#F28046’
+        });
+    }
+    function raiseeventfunction() {
+        console.log(“The raise event is called”)
+        clevertap.event.push(“Product viewed”, {
+            “Product name”: “Casio Chronograph Watch”,
+            “Category”: “Mens Accessories”,
+            “Price”: 59.99,
+            “Date”: new Date(),
+            “Quantity”: 23
+        });
+    }
+              
 </script>
 
     <center> <h1> Login Form </h1> </center>
     <form>
-        <div class="container"> 
-            <label>Username : </label> 
-            <input type="identity" placeholder="Enter Identity" name="identity" required>
-            <label>Mobile No. : </label> 
-            <input type="mobileNo" placeholder="Enter Mobile No" name="mobileNo" required>
-            <label>E-mail id : </label> 
-            <input type="email" placeholder="Enter E-mail id" name="email" required>
-            <label>Date of birth : </label> 
-            <input type="Date" placeholder="Enter Date of birth" name="date" required>
-            <label>Gender : </label> 
-            <input type="Gender" placeholder="Enter Gender" name="Gender" required>
-        </div>
+                <div class=“container”>
+                    <input type=“text” name=“” id=‘name’ placeholder=“Enter your Name”>
+                </div>
+                <div class=“container”>
+                    <input type=“email” name=“” id=‘email’ placeholder=“Enter your Email Address”>
+                </div>
+                <div class=“container”>
+                    <input type=“tel” name=“” id=‘tel’ placeholder=“Enter your Phone number”>
+                </div>
+                <div class=“container”>
+                    <input type=“text” name=“” id=‘dob’ placeholder=“Enter your Date of Birth”
+                        onfocus=“(this.type=‘date’)“>
+                </div>
+                <button onclick=“loginfunction()“>Login event</button>
+                <button onclick=“profilepushfunction()“>Profile Push</button>
+                <button onclick=“askforpush()“>Ask For Push</button>
+                <button onclick=“raiseeventfunction()“>Raise event</button>
 
-      <button onclick="onUserLogin()">login</button>
-
-            <button onclick="profilePush()">Profile push</button>
-
-<button onclick="askForPush()">Submit</button>
-</form>
-</body>
+            </form>
+     
+     </body>
 </head>
 </html>
