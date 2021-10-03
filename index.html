@@ -1,21 +1,53 @@
 <!DOCTYPE html> 
-<html> 
-<head>
+<html lang="en">
+     <head>
+     <meta charset=“UTF-8”>
+     <meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+     <meta http-equiv=“X-UA-Compatible” content=“ie=edge”>
+     <script type=“text/javascript”>
+        var clevertap = { event: [], profile: [], account: [], onUserLogin: [], notifications: [], privacy: [] };
+        // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+        clevertap.account.push({"id": "848-6W8-9R6Z"});
+        clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
+        clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
+        (function () {
+            var wzrk = document.createElement(‘script’);
+            wzrk.type = ‘text/javascript’;
+            wzrk.async = true;
+            wzrk.src = (‘https:’ == document.location.protocol ? ‘https://d2r1yp2w7bby2u.cloudfront.net’ : ‘http://static.clevertap.com’) + ‘/js/a.js’;
+            var s = document.getElementsByTagName(‘script’)[0];
+            s.parentNode.insertBefore(wzrk, s);
+        })();
+     </script> 
+     </head>
 <body>
-<script type="text/javascript">
-     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
-clevertap.account.push({"id": "848-6W8-9R6Z"});
-clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
-clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
- (function () {
-         var wzrk = document.createElement('script');
-         wzrk.type = 'text/javascript';
-         wzrk.async = true;
-         wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
-         var s = document.getElementsByTagName('script')[0];
-         s.parentNode.insertBefore(wzrk, s);
-  })();
-  
+    <center> <h1> Login Form </h1> </center>
+     <div>
+     <form>
+                <div>
+                    <input type=“text” name=“” id=‘name’ placeholder= “ Enter your Name”>
+                </div>
+                <div>
+                    <input type=“email” name=“” id=‘email’ placeholder= “ Enter your Email Address”>
+                </div>
+                <div>
+                    <input type=“tel” name=“” id=‘tel’ placeholder= “ Enter your Phone number”>
+                </div>
+                <div>
+                    <input type=“text” name=“” id=‘dob’ placeholder= “ Enter your Date of Birth”
+                        onfocus=“(this.type=‘date’)“>
+                </div>
+                <button onclick=“loginfunction()“>Login event</button>
+                <button onclick=“profilepushfunction()“>Profile Push</button>
+                <button onclick=“askforpush()“>Ask For Push</button>
+                <button onclick=“raiseeventfunction()“>Raise event</button>
+
+            </form>
+          </div>
+     
+     </body>
+     
+     <script type="text/javascript">
 function loginfunction() {
         var name = document.getElementById(“name”).value;
         var email = document.getElementById(“email”).value;
@@ -71,31 +103,4 @@ function loginfunction() {
     }
               
 </script>
-
-    <center> <h1> Login Form </h1> </center>
-     <div>
-     <form>
-                <div>
-                    <input type=“text” name=“” id=‘name’ placeholder=“Enter your Name”>
-                </div>
-                <div>
-                    <input type=“email” name=“” id=‘email’ placeholder=“Enter your Email Address”>
-                </div>
-                <div>
-                    <input type=“tel” name=“” id=‘tel’ placeholder=“Enter your Phone number”>
-                </div>
-                <div>
-                    <input type=“text” name=“” id=‘dob’ placeholder=“Enter your Date of Birth”
-                        onfocus=“(this.type=‘date’)“>
-                </div>
-                <button onclick=“loginfunction()“>Login event</button>
-                <button onclick=“profilepushfunction()“>Profile Push</button>
-                <button onclick=“askforpush()“>Ask For Push</button>
-                <button onclick=“raiseeventfunction()“>Raise event</button>
-
-            </form>
-          </div>
-     
-     </body>
-</head>
 </html>
