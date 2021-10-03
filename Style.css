@@ -1,0 +1,86 @@
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+#offer{
+    position: relative;
+}
+#offer::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    background: url('/Project-2/img/contact.jpg') no-repeat center center/cover;
+
+}
+#offer-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+
+#offer-box form{
+    width: 45%;
+}
+
+#offer-box .form-group input {
+    font-family: 'Baloo Bhai', cursive;
+    text-align: center;
+    display: block;
+    width: 508px;
+    padding: 1px;
+    border: 2px solid black;
+    margin: 31px auto;
+    font-size: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#offer-box .btn {
+    font-family: 'Baloo Bhai', cursive;
+    margin: 15px 8px;
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+    border: 6px solid grey;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+#offer-box .btn:hover {
+    background-color: rgb(146, 144, 144);
+    color: black;
+}
+
+footer{
+    background: black;
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+}
+
+/* Utility Classes */
+.h-primary{
+    font-family: 'Bree Serif', serif;
+    font-size: 3.8rem;
+    padding: 12px;   
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 2.3rem;
+    padding: 12px;
+}
+
+.center{
+    text-align: center;
+}
