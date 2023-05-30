@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <title>Unsubscribe from email</title>
+    <style>
+    .wrapperBackground{
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+    }
+    .backgroundImage{
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: transparent url('/assets/images/404BG@2x.png') 0% 0% no-repeat padding-box;
+        background-size: cover;
+        position: relative;
+    }
+    .mainContainer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 576px;  
+    }
+    .formWrapper{
+        width: 100%;
+        background-color: #fff;
+        padding: 50px 50px 30px;
+        border: 1px solid #EDEDED;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    .logoImage{
+        margin-bottom: 35px;
+    }
+    .input{
+        width: 100%;
+        height: 62px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #CCCCCC;
+        border-radius: 8px;
+        padding-left: 15px;
+    }
+    .label{
+        font-size: 15px;
+        line-height: 27px;
+        font-family: "MetropolisRegular";
+        color: #333333;
+        display: block;
+        text-align: left;
+        font-weight: normal;
+    }
+    .subtitle{
+        font-size: 16px;
+        line-height: 30px;
+        font-family: "MetropolisRegular";
+        color: #767676;
+        margin: 35px auto 10px;
+        display: block;
+    }
+    .title{
+        font-size: 24px;
+        line-height: 23px;
+        font-family: "MetropolisMedium";
+        font-weight: normal;
+        color: #333333;
+    }
+    #unsubscribeBtn {
+    background: #01a8c5 0 0 no-repeat padding-box;
+    color: #fff;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: MetropolisMedium;
+    border-radius: 50px;
+    padding: 18px 100px;
+    text-decoration: none;
+    border: none;
+    margin-top: 40px;
+    width: auto;
+    height: 60px;
+    cursor: pointer;
+    }
+    #unsubscribeBtn[disabled] {
+        background-color: #adadad;
+        cursor:not-allowed;
+    }
+    #unsubscribeText{
+        padding-top: 10px;
+        font-size: 21px;
+        line-height: 30px;
+        font-family: MetropolisRegular;
+        font-weight: 400;
+        color:#ef7ea8;
+    }
+    .input::placeholder {
+        color: #a7a7a7;
+        opacity: 1; /* Firefox */
+      }
+      
+    
+    .input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color: #a7a7a7;
+      }
+      
+    .input::-ms-input-placeholder { /* Microsoft Edge */
+       color: #a7a7a7;
+      }
+    
+    @media screen and (min-width: 360px) and (max-width: 767px){
+        .mainContainer{
+            width: 85%;
+            margin: 0 auto;
+        }
+        .formWrapper{
+            padding: 40px 20px;
+        }
+        .logoImage{
+            width: 115px;
+            margin: 0 auto 22px;
+        }
+        img{
+            width: 115px;
+        }
+    
+        .title{
+            font-size: 21px;
+        }
+        .subtitle{
+            line-height: 25px;
+            font-size: 15px;
+            margin: 20px auto 25px;
+        }
+        .label{
+            font-size: 14px;
+        }
+        .input{
+            padding-left: 8px;
+        }
+    }
+    </style>
+    <!-- your WizRocket JS embed code goes here -->
+    <script id="clevertap-script">
+      var clevertap = {
+        event: [],
+        profile: [],
+        account: [],
+        onUserLogin: [],
+        notifications: [],
+      };
+      clevertap.account.push({ id: "848-6W8-9R6Z" });
+      (function () {
+        var wzrk = document.createElement("script");
+        wzrk.type = "text/javascript";
+        wzrk.async = true;
+        wzrk.src =
+          ("https:" == document.location.protocol
+            ? "https://d2r1yp2w7bby2u.cloudfront.net"
+            : "http://static.clevertap.com") + "/js/clevertap.min.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(wzrk, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapperBackground">
+      <div class="backgroundImage">
+        <div class="mainContainer">
+          <div class="logoImage">
+            <image
+              src="/assets/images/Logo/Logo.svg"
+              width="{161}"
+              height="{49}"
+              priority="{true}"
+            />
+          </div>
+          <div class="formWrapper">
+            <h4 class="title">We are sorry to see you go</h4>
+            <span class="subtitle">
+              To unsubscribe, please enter your email address below
+            </span>
+            <input
+            class="input"
+              type="text"
+              id="email"
+              placeholder="Enter your Email ID"
+            />
+            <button id="unsubscribeBtn" onclick="unsubscribe()">Unsubscribe</button>
+            <p id="unsubscribeText"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // on  page load, fetch the email id of the user.
+      window.onload = function () {
+        $WZRK_WR.getEmail();
+      };
+
+      // will be called after the email id of the user has been fetched
+      function wzrk_email_fetched(emailStr) {
+        document.getElementById("email").value = emailStr;
+      }
+
+      // will be called after the subscription preferences for the user have been updated
+      function wzrk_email_subscription(status) {
+        //status 0 : unsubscribed, status 1 : subscribed
+        // todo - you can show a success message to the user from here
+        var statusLabel = "subscribed";
+        if (status == 0) {
+          statusLabel = "unsubscribed";
+        }
+        alert("You've been " + statusLabel);
+      }
+
+      // call this function to unsubscribe the user
+      function unsubscribe() {
+        $WZRK_WR.unSubEmail();
+        console.log('I am clicked');
+            if(document.getElementById("email").value == ''){
+                console.log("Empty Field")
+            document.getElementById('unsubscribeText').innerHTML = "Please enter a valid Email ID to unsubscribe";
+            }
+            else{
+            document.getElementById("unsubscribeBtn").disabled = true;
+            document.getElementById('unsubscribeText').innerHTML = "You've been unsubscribed successfully";
+            }
+      }
+    </script>
+  </body>
+</html>
